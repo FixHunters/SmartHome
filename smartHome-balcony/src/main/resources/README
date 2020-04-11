@@ -1,0 +1,84 @@
+Please add your static resources here
+
+Spustenie Aplikacie
+- BalconyApplication
+
+9.4.2019
+- na spustanit jobu je potrebne naimplementovat do projektu @scheduled (cron)
+28.4.2019
+- naimplementovany job balconyServise spusta sa kazdych par sekund
+1.7.2019
+- precistenie projektu a nahratie ho do githubu
+1.9
+- implementacia ADC prevodniku
+- implementacia restart endpointu
+
+***** VYPNUTIE OBRAZOVKY *****
+1, sudo nano /etc/rc.local
+2, /usr/bin/tvservice -o
+
+
+***** SHUTDOWN CONSOLA *****
+sudo shutdown -h now
+
+9.11
+- implemetacia spustania python scriptu pre kameru
+
+25.11 
+dokoncenie crone jobu pre nastavenie a spustanie cerpadla
+
+Treba spravit posielanie foto
+https://www.baeldung.com/spring-controller-return-image-file
+
+Dokoncit posielanie e-mail ak je to potrebne
+
+1.12
+posledny commit vsetkych veci
+TODO
+-spravit asynchronne vlakno na check PIR senzoru
+-nakonfigurovt mail sender
+
+12.1 2020
+-nakonfigurovanie druhe I2C
+-tuna /boot/config.txt trebalo pridat :
+	dtoverlay=i2c-gpio,i2c_gpio_delay_us=2
+spristupnilo mi to potom I2C3 BUS napi4j pine 4 a 5 	
+
+***** pridany svetelny senzor *****
+BH1750
+
+TODO dorobit konverziu
+120 000 lux Najjasnejšie slnečné svetlo
+111 000 lux Jasné slnečné svetlo
+109 870 lux AM 1,5 slnečné svetlo globálneho slnečného spektra
+20 000 luxov Tieň osvetlený celou jasnou modrou oblohou v poludnie
+1 000 - 2 000 luxov Typický oblačno, poludnie
+<200 lux Extrémne najhrubšie búrkové oblaky, poludnie
+400 lux Východ slnka alebo západu slnka za jasného dňa (okolité osvetlenie)
+40 lux Plne zamračené, západ slnka / svitania
+<1 lux Extrémne najhrubšie búrkové mraky, západ slnka / stúpania
+
+*** Ideas Modeler *** prehodit do smarthome projektu
+- pouzivam ho na spravenie diagramu pre smartHome
+
+21.3.2020
+URL repozitar v gitlabe
+https://github.com/FixHunters/Balcony/commits/master
+
+28.3 2020
+spravenie samospustania aplikacie
+- do suboru: sudo nano /etc/rc.local
+- pridam riadok : sudo java -jar home/pi/Project/Balcony-0.0.1-SNAPSHOT.jar
+
+29.3 2020
+Nastavenie DHCP pre vygenerovanie statickej IP adresy
+- do /etc/dhcpcd.conf
+- pridam riadok: 
+SSID Perwoll
+static ip_address=192.168.0.111
+static routers=192.168.0.1
+static domain_name_servers=8.8.8.8
+noipv6
+
+TODO
+upravit funkciu na light senzor aby sa volala dva krat pretoze prva hodnota je vzdy 0

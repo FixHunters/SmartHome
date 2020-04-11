@@ -1,0 +1,50 @@
+*** Maven ***
+- vytvorenie kniznice: mv3 package
+
+*** Run ***
+- ak chces spravit package jar a spustit ho potrebujes mat v nom main metodu s args
+	a nastavenu tuto metodu v pom.xml aby sa s spustila
+java -jar -Dspring.profiles.active=local demo-0.0.1-SNAPSHOT.jar	
+	
+*** Raspberry I2C ***
+- sudo i2cdetect -y 1 : zistenie ci je nejake zariadenie adresovane na I2C	
+	pri BMP180 je aby tam bola 77 ak je vsetko OK
+	
+*** Postgresql
+1,- sudo apt install postgresql libpq-dev postgresql-client postgresql-client-common -y
+2,- sudo su postgres - zapnutie postgres konzoly
+- pre zrusenie autorizacie uzivatela do DB bola treba zmenit peer na trust tam kde je host ...127.0.0.1
+	sudo nano /etc/postgresql/9.6/main/pg_hba.conf
+- sudo service postgresql [command]	
+https://opensource.com/article/17/10/set-postgres-database-your-raspberry-pi
+		
+*** Raspberry ***	
+*PRVY BOOT
+1, pri pripojenie sa k wifi ne nutne nastavit WIFI Localization v preferences
+2, sudo apt-get update && sudo apt-get upgrade
+	toto zadam hned po prvom boote neskor to uz hadam nepouzijem kvoli konzistentnosti systemu
+	
+- pred stiahnutim noveho programu je dobre spravit update systemu moze to koli tomu padat
+	sudo apt-get update	
+	
+**** SENSORS ***
+Rain
+https://raspi.tv/2017/make-a-rain-alert-system-with-raspberry-pi	
+	
+	FIXXX
+TODO fixunit wiring pi kniznicu pre novy procesor BCM2835
+1, - @Autowired anotacia sposobuje chybu: 
+	java.io.NotSerializableException: com.smarthome.flat.svc.controller.ApplicationController
+	org.eclipse.jetty.server.session.UnwriteableSessionDataException: Unwriteable session node0rkr7m3be3fx81kr8tmaf46za30 for node0__0.0.0.0
+	
+***** VAADIN **** !!Zmazany
+-je potrebne pridat widget src/main/resources/AppWidgetset.gwt.xml
+-pridat -Dvaadin.charts.developer.license=47ef4798-dc42-4727-9d11-3b97d5e0f042
+	do nastavenie eclipse: Window->Preferences->Java->Java JRE->Edit->Default VM arguments:	
+	
+TODO	
+spravit urdzanie session po vypnuti putty:
+http://raspi.tv/2012/using-screen-with-raspberry-pi-to-avoid-leaving-ssh-sessions-open
+-hotovo treba pres spustenim procesu cez putty zadat prikaz:	screen bash
+	ktora vytvori novu session v ktorej bude aplikacia bezat
+

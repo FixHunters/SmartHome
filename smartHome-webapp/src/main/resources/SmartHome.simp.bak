@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="11.50" multi-file="no" uid="simpb0ad0f6965ec4acd9c83a2aada6066ab">
+  <meta>
+    <name>SmartHome</name>
+    <authors> Jan Pojezdala</authors>
+    <description />
+  </meta>
+  <counters models="3">
+    <entity-names>
+      <counter>
+        <item-type type-id="ui-tabs" type="UITabs" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="ui-panel" type="UIPanel" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="class" type="UmlClass" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="part" type="UmlPart" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="port" type="UmlPort" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="actor" type="UmlActor" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="use-case" type="UmlUseCase" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="system-boundary" type="UmlSystemBoundary" />
+        <value>8</value>
+      </counter>
+      <counter>
+        <item-type stereotype="component" type-id="component" type="UmlComponent" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="artifact" type="UmlArtifact" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="collaboration" type="UmlCollaboration" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="frame" type="UmlFrame" />
+        <value>1</value>
+      </counter>
+    </entity-names>
+    <entity-ids>
+      <counter>
+        <item-type type-id="ui-tabs" type="UITabs" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="ui-panel" type="UIPanel" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="class" type="UmlClass" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="part" type="UmlPart" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="port" type="UmlPort" />
+        <value>4</value>
+      </counter>
+      <counter>
+        <item-type type-id="actor" type="UmlActor" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="dependency" type="UmlDependency" />
+        <value>10</value>
+      </counter>
+      <counter>
+        <item-type type-id="use-case" type="UmlUseCase" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="system-boundary" type="UmlSystemBoundary" />
+        <value>9</value>
+      </counter>
+      <counter>
+        <item-type type-id="include" type="UmlInclude" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="extend" type="UmlExtend" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="component" type="UmlComponent" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="uml-provided-interface-connector" type="UmlProvidedInterfaceConnector" />
+        <value>4</value>
+      </counter>
+      <counter>
+        <item-type type-id="uml-interface" type="UmlInterface" />
+        <value>4</value>
+      </counter>
+      <counter>
+        <item-type type-id="artifact" type="UmlArtifact" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="shape" type="AbstractShapeItem" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="collaboration" type="UmlCollaboration" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="frame" type="UmlFrame" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="universal-connector" type="UniversalConnector" />
+        <value>6</value>
+      </counter>
+      <counter>
+        <item-type type-id="text" type="AbstractTextItem" />
+        <value>4</value>
+      </counter>
+      <counter>
+        <item-type type-id="formatted-text" type="AbstractFormattedTextItem" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="" type="AbstractElementGroup" />
+        <value>5</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.Other.WebPageDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlCompositeStructureDiagram</type>
+        <value>3</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlDeploymentDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlUseCaseDiagram</type>
+        <value>2</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.SysMLDiagrams.SysMLBlockDefinitionDiagram</type>
+        <value>2</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlTimingDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlActivityDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlClassDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlCommunicationDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlInteractionOverviewDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlObjectDiagram</type>
+        <value>2</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlSequenceDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlComponentDiagram</type>
+        <value>1</value>
+      </counter>
+    </diagrams>
+    <fields />
+  </counters>
+  <alias-groups />
+  <management uid="md-e9690330792b428692ea0cbbd084ccc0" name="" task-id-sequence="0">
+    <working-schedule uid="ws-f3abf054eee84af0bcbcebdfd5b9b6e8" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+    <persons>
+      <person id="Pf46e4fc36e424e229d91e51aac7fb2cb">
+        <first-name />
+        <last-name />
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-dafbe485c52845f9a859547b862ece7b" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+    </persons>
+    <teams />
+    <sprints />
+    <projects />
+    <modules />
+    <tasks />
+    <to-dos />
+  </management>
+  <glossary id="glsr-7a2f3ad35b2040c894c8ffd293073ae7" />
+  <types default="UML">
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types />
+  </types>
+  <items>
+    <item id="di119658640774640081" cid="IFC001" type="uml-interface" name="" style-class="" visibility="package" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:30:55">
+      <style class="default" />
+      <interface />
+    </item>
+  </items>
+  <models>
+    <model id="p786ab9be44434358a131ec3b7a1f8fbf_236108663" name="Model3" namespace="" order-index="1">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>06/09/2018 23:16:58</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="sysml-block-definition" id="pc835019eb4f14495b4758896a8e17842_912863065" name="SysMLBlockDefinitionDiagram2" order-index="1" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>06/09/2018 23:16:58</creation-date>
+          <change-date>06/09/2018 23:16:58</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer id="e359728f73a1442a97b7db653334ca9c" name="Default" visible="true" enabled="true" locked="false" />
+      </diagram>
+      <diagram type="uml-usecase" id="pc081012ae09e49ec9f085a031aa57361_211570889" name="UseCaseDiagram2" order-index="2" overview-order-index="0" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="261,-8">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>06/09/2018 23:17:13</creation-date>
+          <change-date>01/15/2020 13:22:09</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="di723182007649810755" cid="AC001" type="actor" name="Actor1" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:17:19">
+            <style class="default" />
+          </item>
+          <item id="di300410324555289570" cid="DEP001" type="dependency" name="" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:19:20" from="di723182007649810755">
+            <stereotypes>
+              <stereotype name="use" />
+            </stereotypes>
+            <style class="default" />
+          </item>
+          <item id="di195399149921003641" cid="SYS001" type="system-boundary" name="Raspberry B+" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:20:05">
+            <cooperation>
+              <comments>
+                <comment id="" author-ref="Pf46e4fc36e424e229d91e51aac7fb2cb" reply-to-ref="" creation-date="06/09/2018 23:24:10">
+                  <text>
+                    <styles />
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style numbering-type="None">
+                          <numbering name="" multi-level="false">
+                            <numbering-level type="None" level="0" format="{0}." />
+                          </numbering>
+                        </style>
+                        <p>
+                          <t>Componenta
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </comment>
+              </comments>
+            </cooperation>
+            <style class="default" />
+          </item>
+          <item id="di586532677353595272" cid="DEP002" type="dependency" name="" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:23:32" from="di204508665597181631">
+            <stereotypes>
+              <stereotype name="use" />
+            </stereotypes>
+            <style class="default" />
+          </item>
+          <item id="di204508665597181631" cid="SYS001" type="system-boundary" name="Raspberry Zero" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:20:05">
+            <style class="default" />
+          </item>
+          <item id="di488241809743499496" cid="DEP003" type="dependency" name="" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:33:52" from="di195399149921003641">
+            <stereotypes>
+              <stereotype name="use" />
+            </stereotypes>
+            <style class="default" />
+          </item>
+          <item id="di467546862278529623" cid="CL001" type="collaboration" name="DB" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:35:00">
+            <style class="default" />
+          </item>
+          <item id="di719923779143059605" cid="DEP004" type="dependency" name="" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:35:20" to="di985385538462836661">
+            <stereotypes>
+              <stereotype name="use" />
+            </stereotypes>
+            <style class="default" />
+          </item>
+          <item id="di985385538462836661" cid="SYS003" type="system-boundary" name="BMP180" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:36:00">
+            <style class="default" />
+          </item>
+          <item id="di949601279262025700" cid="SYS004" type="system-boundary" name="BH1750" style-class="" visibility="package" change-tracking-state="added" creation-date="01/15/2020 12:57:33">
+            <style class="default" />
+          </item>
+          <item id="di759606350217264880" cid="DEP007" type="dependency" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="01/15/2020 12:58:48" from="di204508665597181631" to="di949601279262025700">
+            <stereotypes>
+              <stereotype name="use" />
+            </stereotypes>
+            <style class="default" />
+          </item>
+          <item id="di671673344405038708" cid="SYS005" type="system-boundary" name="Water Level sensor" style-class="" visibility="package" change-tracking-state="added" creation-date="01/15/2020 13:08:27">
+            <style class="default" />
+          </item>
+          <item id="di292504574128167261" cid="SYS006" type="system-boundary" name="Soil moisture sensor" style-class="" visibility="package" change-tracking-state="added" creation-date="01/15/2020 13:09:15">
+            <style class="default" />
+          </item>
+          <item id="di413766557877773891" cid="DEP008" type="dependency" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="01/15/2020 13:11:13" from="di204508665597181631" to="di671673344405038708">
+            <stereotypes>
+              <stereotype name="use" />
+            </stereotypes>
+            <style class="default" />
+          </item>
+          <item id="di901688761610980377" cid="DEP009" type="dependency" name="" style-class="" visibility="package" change-tracking-state="added" creation-date="01/15/2020 13:11:22" from="di204508665597181631" to="di292504574128167261">
+            <stereotypes>
+              <stereotype name="use" />
+            </stereotypes>
+            <style class="default" />
+          </item>
+          <item id="di819198920800862982" cid="SYS007" type="system-boundary" name="Motion sensor" style-class="" visibility="package" change-tracking-state="added" creation-date="01/15/2020 13:16:37">
+            <style class="default" />
+          </item>
+          <item id="di949234394296789536" cid="SYS008" type="system-boundary" name="Battery voltage check" style-class="" visibility="package" change-tracking-state="added" creation-date="01/15/2020 13:22:09">
+            <style class="default" />
+          </item>
+        </abstract-items>
+        <layer id="b7c13376f15a4380850b120307661827" name="Default" visible="true" enabled="true" locked="false">
+          <item id="di723182007649810755" iid="8f98cb61b7534e519a04fc26cd780a90" creation-date="06/09/2018 23:17:19" order-index="0" type="entity">
+            <layout ax="203" ay="201" awidth="50" aheight="100" x="203" y="201" width="50" height="200" name-position="0,10" name-anchor="bottom" auto-anchor="true" label-attached="false" />
+          </item>
+          <item id="di300410324555289570" iid="633ee5ec960b47938f99413b722da363" creation-date="06/09/2018 23:19:20" order-index="1" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="false" lock-to-fields="false" auto-path="" x1="253" y1="251" x2="388" y2="252" start-border-pos="0.375" end-border-pos="-1" name-position="-4,-9">
+              <points>
+                <point x="253" y="251" />
+                <point x="388" y="252" />
+              </points>
+            </layout>
+            <relation from="di723182007649810755" from-iid="8f98cb61b7534e519a04fc26cd780a90" />
+          </item>
+          <item id="di195399149921003641" iid="0a18038d57694f1891ad0e92c933bb6c" creation-date="06/09/2018 23:20:05" order-index="2" type="entity">
+            <layout ax="402" ay="135" awidth="211" aheight="256" x="402" y="135" width="211" height="256" />
+          </item>
+          <item id="di204508665597181631" iid="443ac181bafb46c9aa81c6c0030aa074" creation-date="06/09/2018 23:20:05" order-index="2" type="entity">
+            <layout ax="727" ay="99.5" awidth="243" aheight="344" x="727" y="99.5" width="243" height="344" />
+          </item>
+          <item id="di586532677353595272" iid="9c518395e55b43c0a45564f9e7cc3187" creation-date="06/09/2018 23:23:32" order-index="3" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="727" y1="272" x2="726" y2="263" start-border-pos="0.875" end-border-pos="0.375" name-position="47,-8">
+              <points>
+                <point x="727" y="272" />
+                <point x="617" y="263" />
+                <point x="663" y="263" />
+                <point x="726" y="263" />
+              </points>
+            </layout>
+            <relation from="di204508665597181631" from-iid="443ac181bafb46c9aa81c6c0030aa074" />
+          </item>
+          <item id="di488241809743499496" iid="69968be3d40541fc875376f8fb089e2d" creation-date="06/09/2018 23:33:52" order-index="4" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="false" lock-to-fields="false" auto-path="" x1="508" y1="391" x2="507" y2="513" start-border-pos="0.624407582938389" end-border-pos="-1" name-position="0,0">
+              <points>
+                <point x="508" y="391" />
+                <point x="507" y="513" />
+              </points>
+            </layout>
+            <relation from="di195399149921003641" from-iid="0a18038d57694f1891ad0e92c933bb6c" />
+          </item>
+          <item id="di467546862278529623" iid="4b91578bac4940e6b0bd207bd9dad8a4" creation-date="06/09/2018 23:35:00" order-index="5" type="entity">
+            <layout ax="420.5" ay="513" awidth="174" aheight="130" x="420.5" y="513" width="174" height="130" />
+          </item>
+          <item id="di719923779143059605" iid="e32e2b47bac544c28e89e5e2475344da" creation-date="06/09/2018 23:35:20" order-index="6" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="937" y1="163" x2="1069" y2="129" start-border-pos="0.27734375" end-border-pos="0.898648648648649" name-position="6,-12">
+              <points>
+                <point x="937" y="163" />
+                <point x="1069" y="129" />
+              </points>
+            </layout>
+            <relation to="di985385538462836661" to-iid="d7abb28cb2df4bf4be962bf71c374899" />
+          </item>
+          <item id="di985385538462836661" iid="d7abb28cb2df4bf4be962bf71c374899" creation-date="06/09/2018 23:36:00" order-index="7" type="entity">
+            <layout ax="1069.25" ay="97" awidth="186.25" aheight="80" x="1069.25" y="97" width="186.25" height="80" />
+          </item>
+          <item id="di697116880706100325" iid="ab77007c3d5140b0b5157297b894c53f" name="Element1" container="di985385538462836661" container-iid="d7abb28cb2df4bf4be962bf71c374899" creation-date="01/15/2020 12:56:07" order-index="8" type="drawing-text">
+            <layout ax="1106.5" ay="99.5" awidth="111" aheight="75" x="1106.5" y="99.5" width="111" height="75" />
+            <drawing-text>
+              <text>Temperature
+Humidity
+Altitude
+/data</text>
+            </drawing-text>
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FF000000" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;8;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;8;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="solid" color="#00FFFFFF" color2="#00FFFFFF" />
+              <border color="#FF000000" width="0" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="di949601279262025700" iid="7455da93e1e04c4fb463f1d51ae349bc" creation-date="01/15/2020 12:57:33" order-index="9" type="entity">
+            <layout ax="1068.5" ay="203" awidth="187" aheight="58" x="1068.5" y="203" width="187" height="58" />
+          </item>
+          <item id="di759606350217264880" iid="ce6fc69caca84d5288dc0acc11c08854" creation-date="01/15/2020 12:58:48" order-index="10" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="970" y1="272" x2="1068" y2="232" start-border-pos="0.375" end-border-pos="0.875" name-position="-1,-17">
+              <points>
+                <point x="970" y="272" />
+                <point x="1068" y="232" />
+              </points>
+            </layout>
+            <relation from="di204508665597181631" from-iid="443ac181bafb46c9aa81c6c0030aa074" to="di949601279262025700" to-iid="7455da93e1e04c4fb463f1d51ae349bc" />
+          </item>
+          <item id="di188805927169898104" iid="c0dcbf8c97e1434bb07eddcbe9f5095c" name="Element2" container="di949601279262025700" container-iid="7455da93e1e04c4fb463f1d51ae349bc" creation-date="01/15/2020 12:59:05" order-index="11" type="drawing-formatted-text">
+            <layout ax="1124.5" ay="217" awidth="93" aheight="44" x="1124.5" y="217" width="93" height="44" />
+            <formatted-text>
+              <text>
+                <styles />
+                <definition>
+                  <sections>
+                    <section name="">
+                      <default-page>
+                        <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                          <margins left="20" right="20" top="20" bottom="20" />
+                        </page>
+                      </default-page>
+                    </section>
+                  </sections>
+                </definition>
+                <content>
+                  <paragraph>
+                    <style alignment="Center" numbering-type="None">
+                      <numbering name="" multi-level="false">
+                        <numbering-level type="None" level="0" format="{0}." />
+                      </numbering>
+                    </style>
+                    <p>
+                      <t>Light </t>
+                    </p>
+                    <p>
+                      <t>sensor
+</t>
+                    </p>
+                  </paragraph>
+                  <paragraph>
+                    <style alignment="Center" numbering-type="None">
+                      <numbering name="" multi-level="false">
+                        <numbering-level type="None" level="0" format="{0}." />
+                      </numbering>
+                    </style>
+                    <p>
+                      <t>/light
+</t>
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </formatted-text>
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FF000000" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;10;" horizontal-alignment="left" vertical-alignment="top" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="solid" color="#00FFFFFF" color2="#00FFFFFF" />
+              <border color="#FF000000" width="0" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="di671673344405038708" iid="89575a37659c4c9b9a8a7e3f96a380b8" creation-date="01/15/2020 13:08:27" order-index="12" type="entity">
+            <layout ax="1068.5" ay="273.5" awidth="187" aheight="27.5" x="1068.5" y="273.5" width="187" height="27.5" />
+          </item>
+          <item id="di292504574128167261" iid="003a454f65d84a4ba62fbcb8e472bec8" creation-date="01/15/2020 13:09:15" order-index="13" type="entity">
+            <layout ax="1069.25" ay="319" awidth="186.25" aheight="27" x="1069.25" y="319" width="186.25" height="27" />
+          </item>
+          <item id="di413766557877773891" iid="c28414cbdbe3433ba1db265dba84cf61" creation-date="01/15/2020 13:11:13" order-index="14" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="970" y1="352" x2="1068" y2="288" start-border-pos="0.43359375" end-border-pos="0.87037037037037" name-position="5,-16">
+              <points>
+                <point x="970" y="352" />
+                <point x="1068" y="288" />
+              </points>
+            </layout>
+            <relation from="di204508665597181631" from-iid="443ac181bafb46c9aa81c6c0030aa074" to="di671673344405038708" to-iid="89575a37659c4c9b9a8a7e3f96a380b8" />
+          </item>
+          <item id="di901688761610980377" iid="072cbfb49a624ae4b2b5e46b0c2caaf5" creation-date="01/15/2020 13:11:22" order-index="15" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="970" y1="402" x2="1069" y2="333" start-border-pos="0.4697265625" end-border-pos="0.87037037037037" name-position="0,-14">
+              <points>
+                <point x="970" y="402" />
+                <point x="1069" y="333" />
+              </points>
+            </layout>
+            <relation from="di204508665597181631" from-iid="443ac181bafb46c9aa81c6c0030aa074" to="di292504574128167261" to-iid="003a454f65d84a4ba62fbcb8e472bec8" />
+          </item>
+          <item id="di878108745298584380" iid="c4dc122c039b45c6af733490f4d8261d" name="Element3" container="di204508665597181631" container-iid="443ac181bafb46c9aa81c6c0030aa074" creation-date="01/15/2020 13:13:49" order-index="16" type="drawing-text">
+            <layout ax="727" ay="249.5" awidth="322" aheight="182" x="727" y="249.5" width="322" height="182" />
+            <drawing-text>
+              <text>/waterPump - enable/disable water pump
+/data - get data from BMP180
+/adc - get battery voltage
+/light - get BH1750 data
+/water- check water level
+/soil - check soil humidity
+/pir - check motion
+/automateWatering - start automate watering job
+/restart - reboot RSP PI
+/python - run python script
+/crone - set crone job for automate watering</text>
+            </drawing-text>
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FF000000" accuracy="0.9">
+              <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;8;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+              <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;8;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+              <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+              <background type="solid" color="#00FFFFFF" color2="#00FFFFFF" />
+              <border color="#FF000000" width="0" dash-style="Solid" />
+              <label-connector color="#80000000" width="1" dash-style="Dash" />
+              <alternate-styles>
+                <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="1,1" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+                  <text-style type="name" use-defaults="false" color="#FF000000" font="Verdana;10;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="text" use-defaults="false" color="#FF000000" font="Verdana;9;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+                  <text-style type="tagged-value" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <text-style type="stereotype" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+                  <background type="vertical-linear" color="#FF1E90FF" color2="#FF87CEFA" />
+                  <border color="#FF00008B" width="1" dash-style="Solid" />
+                  <label-connector color="#FF000000" width="1" dash-style="Solid" />
+                </alternate-style>
+              </alternate-styles>
+            </style>
+          </item>
+          <item id="di819198920800862982" iid="6831b25da1ef4862a50d4ab01a980d42" creation-date="01/15/2020 13:16:37" order-index="17" type="entity">
+            <layout ax="1068.5" ay="362.5" awidth="187" aheight="27" x="1068.5" y="362.5" width="187" height="27" />
+          </item>
+          <item id="di949234394296789536" iid="7960f9fd901b41568d7de9fb79680d80" creation-date="01/15/2020 13:22:09" order-index="18" type="entity">
+            <layout ax="1069.25" ay="408" awidth="186.25" aheight="27" x="1069.25" y="408" width="186.25" height="27" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="p19e608edbe154833962b23d7082a1d06_163061523" name="ClassDiagram1" order-index="3" overview-order-index="1" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>06/09/2018 23:17:47</creation-date>
+          <change-date>06/09/2018 23:17:47</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer id="f2ba4997dc784cb18bfda006017ed540" name="Default" visible="true" enabled="true" locked="false" />
+      </diagram>
+      <diagram type="uml-communication" id="p5fdeaf2c476943559bd5af6cc722ec80_567346346" name="CommunicationDiagram1" order-index="4" overview-order-index="2" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>06/09/2018 23:17:54</creation-date>
+          <change-date>06/09/2018 23:17:54</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer id="563b545742354e8cae6adcf3346d40d1" name="Default" visible="true" enabled="true" locked="false" />
+      </diagram>
+      <diagram type="uml-interaction-overview" id="p7b61b7e43dfb4f008e97942804da07e8_789888033" name="InteractionOverviewDiagram1" order-index="5" overview-order-index="3" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>06/09/2018 23:18:11</creation-date>
+          <change-date>06/09/2018 23:18:11</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer id="6e2474389411410eb5b205d74aa81247" name="Default" visible="true" enabled="true" locked="false" />
+      </diagram>
+      <diagram type="uml-object" id="p9c290b89e6184836ad07285d74965a52_700721766" name="ObjectDiagram1" order-index="6" overview-order-index="4" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>06/09/2018 23:18:53</creation-date>
+          <change-date>06/09/2018 23:18:53</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer id="739bcc7c166a4285aae6c0be5e15c7af" name="Default" visible="true" enabled="true" locked="false" />
+      </diagram>
+      <diagram type="uml-sequence" id="pf854fe719bcd40bc9f2e2749bd5dc3f9_654515183" name="SequenceDiagram1" order-index="7" overview-order-index="5" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>06/09/2018 23:29:00</creation-date>
+          <change-date>06/09/2018 23:29:00</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer id="1d91521b9f5540058faf737b610c0b8d" name="Default" visible="true" enabled="true" locked="false" />
+      </diagram>
+      <diagram type="uml-component" id="pf47ce6f7aa9543cb8830f45d92faa72d_841728891" name="ComponentDiagram1" order-index="8" overview-order-index="6" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>06/09/2018 23:29:10</creation-date>
+          <change-date>06/09/2018 23:37:13</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="di876708012254481518" cid="CPT001" type="component" name="Component1" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:29:58">
+            <stereotypes>
+              <stereotype name="component" />
+            </stereotypes>
+            <style class="default" />
+            <component />
+          </item>
+          <item id="di234472963903909715" cid="CPT002" type="component" name="Component2" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:30:47">
+            <stereotypes>
+              <stereotype name="component" />
+            </stereotypes>
+            <style class="default" />
+            <component />
+          </item>
+          <item id="di296932605947190339" cid="PORT003" type="port" name="Port3" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:36:39">
+            <style class="default" />
+            <port type="" type-id="" />
+          </item>
+          <item id="di723757269244292069" cid="AF002" type="artifact" name="Artifact2" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:36:52">
+            <stereotypes>
+              <stereotype name="artifact" />
+            </stereotypes>
+            <style class="default" />
+          </item>
+        </abstract-items>
+        <layer id="93f52d6a82724d39922aa824ac3ad9fd" name="Default" visible="true" enabled="true" locked="false">
+          <item id="di876708012254481518" iid="a36f7dc14d554b698e9ef03198a10d75" show-fields="false" creation-date="06/09/2018 23:29:58" order-index="0" type="entity">
+            <layout ax="290" ay="124" awidth="140" aheight="160" x="290" y="124" width="140" height="160" />
+          </item>
+          <item id="di234472963903909715" iid="c24b2bd91b944c2a9b44d2dbe678d061" show-fields="false" creation-date="06/09/2018 23:30:47" order-index="1" type="entity">
+            <layout ax="575" ay="106" awidth="140" aheight="160" x="575" y="106" width="140" height="160" />
+          </item>
+          <item id="di296932605947190339" iid="41b0b1071a794bf9990a365fb698c118" show-name="true" creation-date="06/09/2018 23:36:39" order-index="2" type="entity">
+            <layout ax="196" ay="106" awidth="20" aheight="42" x="196" y="106" width="152" height="42" name-position="0,10" name-anchor="bottom" />
+          </item>
+          <item id="di723757269244292069" iid="2e0e569a99d640a4843123adc68cafb0" creation-date="06/09/2018 23:36:52" order-index="3" type="entity">
+            <layout ax="553" ay="346" awidth="140" aheight="105" x="553" y="346" width="140" height="105" />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-object" id="p32f0e0e073e743c8bbd1173fe2784280_428541181" name="ObjectDiagram2" order-index="9" overview-order-index="7" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>06/09/2018 23:29:45</creation-date>
+          <change-date>06/09/2018 23:29:45</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items />
+        <layer id="8140b4e3b0c64088a7ae3146c5732935" name="Default" visible="true" enabled="true" locked="false" />
+      </diagram>
+    </model>
+  </models>
+</sim-project>
