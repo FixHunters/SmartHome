@@ -1,0 +1,24 @@
+*** Vytvorenie projektovej struktury ***
+1, Manualny navod je pomocou maven archetype pluginu 
+	- navod je tuna : https://www.baeldung.com/maven-multi-module
+	- je potrebne tam potom pridat archetype ako plugin na skompilovanie:
+	<pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-archetype-plugin</artifactId>
+          <version>3.1.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    - postupovat podla krokov v navode 
+    - zakladny prikaz na vytvorenie struktury:
+    mvn archetype:generate -DgroupId=com.smartHome -DartifactId=smartHome
+2, Automaticky prostrednictvom Eclipse
+	- v cistom repozitary vytvorim java project
+	- spravim z neho maven projekt
+	- pravy klik nad projektom v ktorom chcem vytvorim submoduly->
+	maven->new maven module project
+POZNAMKA
+	- aby bola zobrazena projektova struktura spravne po stihanuti z gitu
+		bolo potrebne commitnut aj eclipse subory nie iba cisty kod
