@@ -33,3 +33,14 @@ upravim este chybu ktora mi zostala kvoli tomu ze mam novsi angluar trebe nahrad
 za novy :
 	import { Observable } from 'rxjs';
 	import { of } from 'rxjs';
+
+	
+*** Info ***
+- stiahol som si dashboard template na projekt:
+	https://www.creative-tim.com/product/black-dashboard-angular#
+- je potrebne k nemu doinstalovat chybajuce zavistosti:
+	- npm install --save-dev @angular-devkit/build-angular
+	- npm install -g typescript
+	- npm install --save-dev typescript
+	- npm i --save-dev @angular/compiler-cli
+	- npm install --save tslib
