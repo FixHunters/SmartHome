@@ -21,11 +21,18 @@ public class UserController {
 
     @GetMapping("/users")
     public List<User> getUsers() {
+    	System.out.println("osm tu getusers");
         return (List<User>) userRepository.findAll();
     }
 
     @PostMapping("/users")
     void addUser(@RequestBody User user) {
         userRepository.save(user);
+    }
+    
+    @PostMapping("/sensor")
+    void saveSensor() {
+    	System.out.println("save data to Sensor table");
+        //userRepository.save();
     }
 }
