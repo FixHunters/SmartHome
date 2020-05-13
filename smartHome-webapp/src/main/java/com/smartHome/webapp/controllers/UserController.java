@@ -28,4 +28,10 @@ public class UserController {
     void addUser(@RequestBody User user) {
         userRepository.save(user);
     }
+    
+    @PostMapping("/sensor")
+    void saveSensor() {
+    	System.out.println("save data to Sensor table");
+        //userRepository.save();
+    }
 }

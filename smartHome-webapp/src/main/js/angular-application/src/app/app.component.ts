@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './service/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,11 @@ export class AppComponent {
 
   title: string;
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.title = 'Spring Boot - Angular Application';
+  }
+  
+  myFunction(){
+  	this.userService.saveSensor().subscribe();
   }
 }

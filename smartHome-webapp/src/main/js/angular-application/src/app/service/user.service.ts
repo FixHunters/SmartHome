@@ -19,4 +19,8 @@ export class UserService {
   public save(user: User) {
     return this.http.post<User>(this.usersUrl, user);
   }
+  
+  public saveSensor() {
+  	return this.http.post<>('http://localhost:8080/sensor');
+  }
 }
