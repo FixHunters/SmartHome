@@ -21,7 +21,6 @@ public class UserController {
 
     @GetMapping("/users")
     public List<User> getUsers() {
-    	System.out.println("osm tu getusers");
         return (List<User>) userRepository.findAll();
     }
 
