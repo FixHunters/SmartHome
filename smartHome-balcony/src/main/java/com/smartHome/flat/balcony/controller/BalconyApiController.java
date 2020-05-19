@@ -26,7 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pi4j.io.i2c.I2CFactory.UnsupportedBusNumberException;
 import com.smartHome.flat.balcony.BalconyApplication;
-import com.smartHome.flat.balcony.model.SensorsResponseEntity;
+import com.smartHome.flat.balcony.model.DataResponse;
 import com.smartHome.flat.balcony.service.BalconyService;
 
 @Controller
@@ -54,8 +54,8 @@ public class BalconyApiController implements BalconyApi {
     } 
 
 	@Override
-	public ResponseEntity<SensorsResponseEntity> getData() {
-		return new ResponseEntity<SensorsResponseEntity>(balconyService.getData(), HttpStatus.OK);
+	public ResponseEntity<DataResponse> getData() {
+		return new ResponseEntity<DataResponse>(balconyService.getData(), HttpStatus.OK);
 	}
 
 	@Override

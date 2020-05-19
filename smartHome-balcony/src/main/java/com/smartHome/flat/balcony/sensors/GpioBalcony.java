@@ -106,7 +106,7 @@ public class GpioBalcony {
 
 		transferSpiData(packet);
 
-		double finalResult = setDataConfig(packet, DataPacket.PERCENTAGE);
+		double finalResult = setDataConfig(packet, DataPacket.DATA);
 
 		inputPinOutputVccOut.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();
@@ -375,6 +375,7 @@ public class GpioBalcony {
 	public BigDecimal getLight() throws UnsupportedBusNumberException, IOException {
 		// create gpio controller
 		GpioController gpio = GpioFactory.getInstance();
+		BigDecimal value = null;
 
 		// Enable Vcc pin
 		GpioPinDigitalOutput pinVcc = gpio.provisionDigitalOutputPin(pinVccBH1750, PinState.HIGH);
@@ -382,15 +383,22 @@ public class GpioBalcony {
 		I2CBus bus;
 		bus = I2CFactory.getInstance(I2CBus.BUS_3);
 		BH1750 bh1750 = new BH1750(bus);
-
+		
 		bh1750.init();
+		try {
+			Thread.sleep(150);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-		log.info("Light sensor lx: " + bh1750.read().toString());
-
+		value = bh1750.read();
+		log.info("Light sensor lx: " + value.toString());
+		
 		pinVcc.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();
 		gpio.unprovisionPin(pinVcc);
-		return bh1750.read();
+		return value;
 	}
 
 	/**

@@ -50,19 +50,17 @@ public class BalconyService {
 	 * 
 	 * @return {@link SensorsResponseEntityReply} instance
 	 */
-	public SensorsResponseEntity getData() {
-
-		try {
-			DataResponse dataResponse = temperatureHumidity.main();
-			dataResponse.setSoilStatus(gpioBalcony.soilHumidityCheck());
-			dataResponse.setWaterLevel(gpioBalcony.waterCheck());
-			dataResponse.setWaterPumpStatus(gpioBalcony.waterPumpCheck().isHigh());
-			sensorsResponseEntity.setDataResponse(dataResponse);
+	public DataResponse getData() {
+		DataResponse dataResponse = new DataResponse();
+		try {			
+			dataResponse.dataResponse(temperatureHumidity.main());
+			dataResponse.setLight(gpioBalcony.getLight());
+			dataResponse.setBattery(gpioBalcony.adcFunction());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return sensorsResponseEntity;
+		return dataResponse;
 	}
 
 	/**
