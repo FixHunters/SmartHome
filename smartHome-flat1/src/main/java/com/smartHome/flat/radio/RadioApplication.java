@@ -18,12 +18,12 @@ import com.smartHome.flat.radio.rda5807.util.Util;
  *
  * @author 
  */
-public class RadioApp {
+public class RadioApplication {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public void main() {
         System.out.println("========== START ==========");
         System.out.println("Grove - I2C FM Receiver module (by Seeed) based on RDA5807M single-chip (by RDA Microelectronics Inc.)");
 
@@ -81,7 +81,7 @@ public class RadioApp {
             }
         }
         
-            List<Integer> tunedFrequencies = new ArrayList();
+            List<Integer> tunedFrequencies = new ArrayList<Integer>();
             
             ////////////////////////////////////////////////////////////////////
             // AUTO TUNE (1)
