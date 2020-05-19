@@ -2,7 +2,6 @@
 package com.smartHome.webapp.controllers;
 
 import java.util.Arrays;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +18,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.smartHome.webapp.db.DBSupport;
 import com.smartHome.webapp.model.DataResponse;
-import com.smartHome.webapp.model.Sensors;
-import com.smartHome.webapp.model.SensorsResponseEntity;
 
 @RestController
 public class ApplicationController {
@@ -48,26 +45,6 @@ public class ApplicationController {
 	 * { this.request = request; }
 	 */
 
-	public void insertMeasuredData(Sensors sensor) {
-		getDbSupport().insertSensorsData(sensor);
-	}
-
-	public void insertMeasuredData(SensorsResponseEntity entity) {
-		getDbSupport().insertSensorsResponseEntity(entity);
-	}
-
-	public void findAllSensorsData() {
-		getDbSupport().findAllSensorsData();
-	}
-
-	public String findAllData() {
-		return getDbSupport().findAllSensorsData().toString();
-	}
-
-	public List<Sensors> findAllDataSensor() {
-		return getDbSupport().findAllSensorsData();
-	}
-
 	public Boolean setBoolean() {
 		return true;
 	}
@@ -85,6 +62,12 @@ public class ApplicationController {
 
 		// function for select specific row in table
 		// getDbSupport().selectRow("performance");
+		
+		// function for select specific table "SensorData" to this object
+		/*
+		 * List<SensorData> list = getDbSupport().selectSensorData(); for (SensorData
+		 * sensorData : list) { System.out.println(sensorData); }
+		 */
 	}
 
 }

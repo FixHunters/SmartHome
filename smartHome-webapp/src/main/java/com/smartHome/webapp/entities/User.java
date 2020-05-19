@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+// TODO @kosikova mozem toto zmazat? pouzivame to este v angulary?
 @Entity
 public class User {
     
