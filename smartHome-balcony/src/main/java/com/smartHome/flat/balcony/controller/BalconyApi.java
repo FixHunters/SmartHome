@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.smartHome.flat.balcony.model.DataResponse;
-import com.smartHome.flat.balcony.model.SensorsResponseEntity;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -21,16 +19,16 @@ import io.swagger.annotations.ApiResponses;
 @Api(value = "balcony", description = "Balcony API interface")
 public interface BalconyApi {
 
-	@ApiOperation(value = "", nickname = "getPIR", notes = "Get PIR motion status", response = SensorsResponseEntity.class, tags = {})
+	@ApiOperation(value = "", nickname = "getPIR", notes = "Get PIR motion status", response = DataResponse.class, tags = {})
 	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Get PIR motion was sucessful", response = SensorsResponseEntity.class),
+			@ApiResponse(code = 200, message = "Get PIR motion was sucessful", response = DataResponse.class),
 			@ApiResponse(code = 400, message = "Wrong input data format", response = Error.class) })
 	@RequestMapping(value = "/pir", produces = { "application/json" }, method = RequestMethod.GET)
 	Boolean getPir();
 
-	@ApiOperation(value = "", nickname = "getADC", notes = "Setup ADC converter", response = SensorsResponseEntity.class, tags = {})
+	@ApiOperation(value = "", nickname = "getADC", notes = "Setup ADC converter", response = DataResponse.class, tags = {})
 	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Setup ADC converter was sucessful", response = SensorsResponseEntity.class),
+			@ApiResponse(code = 200, message = "Setup ADC converter was sucessful", response = DataResponse.class),
 			@ApiResponse(code = 400, message = "Wrong input data format", response = Error.class) })
 	@RequestMapping(value = "/adc", produces = { "application/json" }, method = RequestMethod.GET)
 	Double getAdc();
@@ -42,33 +40,17 @@ public interface BalconyApi {
 	@RequestMapping(value = "/data", produces = { "application/json" }, method = RequestMethod.GET)
 	ResponseEntity<DataResponse> getData();
 
-	@ApiOperation(value = "", nickname = "patchWaterPump", notes = "Retrieve jsonObject of waterPump status", response = SensorsResponseEntity.class, tags = {})
+	@ApiOperation(value = "", nickname = "patchWaterPump", notes = "Retrieve jsonObject of waterPump status", response = DataResponse.class, tags = {})
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "The operation was successful", response = Boolean.class),
 			@ApiResponse(code = 400, message = "Wrong input data format", response = Error.class) })
 	@RequestMapping(value = "/waterPump", produces = { "application/json" }, method = RequestMethod.PATCH)
 	Boolean patchWaterPump();
 
-	@ApiOperation(value = "", nickname = "postAutomateWatering", notes = "Retrieve jsonObject of waterPump status", response = SensorsResponseEntity.class, tags = {})
+	@ApiOperation(value = "", nickname = "postAutomateWatering", notes = "Retrieve jsonObject of waterPump status", response = DataResponse.class, tags = {})
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "The operation was successful"),
 			@ApiResponse(code = 400, message = "Wrong input data format", response = Error.class) })
 	@RequestMapping(value = "/automateWatering", produces = { "application/json" }, method = RequestMethod.POST)
 	void setAutomateWatering();
 
-	/*
-	 * @ApiOperation( value = "", nickname = "getRadio", notes =
-	 * "Retrieve radio stations", response = SensorsResponseEntity.class, tags = {}
-	 * )
-	 * 
-	 * @ApiResponses( value = {
-	 * 
-	 * @ApiResponse( code = 200, message = "The operation was successful", response
-	 * = SensorsResponseEntity.class ),
-	 * 
-	 * @ApiResponse(code = 400, message = "Wrong input data format", response =
-	 * Error.class) } )
-	 * 
-	 * @RequestMapping( value = "/radio", produces = {"application/json"}, method =
-	 * RequestMethod.GET ) List<Integer> getRadio();
-	 */
 }

@@ -1,11 +1,11 @@
 package com.smartHome.flat.balcony.controller;
 
 
-
+//TODO Test creation thread for motion sensor
 public class SingleThreadExample {
     public static void main(String[] args) {
-    //    NewThread t = new NewThread();
-     //   t.start();
+        NewThread t = new NewThread();
+        t.start();
     }
     
 

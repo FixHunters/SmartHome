@@ -25,7 +25,6 @@ import org.springframework.stereotype.Component;
 
 import com.pi4j.io.i2c.I2CFactory.UnsupportedBusNumberException;
 import com.smartHome.flat.balcony.model.DataResponse;
-import com.smartHome.flat.balcony.model.SensorsResponseEntity;
 import com.smartHome.flat.balcony.sensors.GpioBalcony;
 import com.smartHome.flat.balcony.sensors.TemperatureHumidity;
 
@@ -40,7 +39,6 @@ public class BalconyService {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	SensorsResponseEntity sensorsResponseEntity = new SensorsResponseEntity();
 	GpioBalcony gpioBalcony = new GpioBalcony();
 	TemperatureHumidity temperatureHumidity = new TemperatureHumidity();
 

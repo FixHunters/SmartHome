@@ -123,12 +123,6 @@ public class BalconyApiController implements BalconyApi {
 		return value;
 	}
     
-/*    @Override
-    public List<Integer> getRadio() {
-    	RadioApp radioApp = new RadioApp();
-    	return radioApp.main();
-    }*/
-    
     @PatchMapping("/enablePower")
     public Boolean enablePowerBank() {
     	return balconyService.patchPowerBank(request.getHeader("enabled"));

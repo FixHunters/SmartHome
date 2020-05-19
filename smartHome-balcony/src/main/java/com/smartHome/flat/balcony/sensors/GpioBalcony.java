@@ -379,7 +379,7 @@ public class GpioBalcony {
 
 		// Enable Vcc pin
 		GpioPinDigitalOutput pinVcc = gpio.provisionDigitalOutputPin(pinVccBH1750, PinState.HIGH);
-		log.info("<GpioBalcony> Enable Vcc pin for BH1750 Light senzor, Pin: " + pinVccBH1750 + " State: " + pinVcc.getState().toString());
+		log.debug("<GpioBalcony> Enable Vcc pin for BH1750 Light senzor, Pin: " + pinVccBH1750 + " State: " + pinVcc.getState().toString());
 		I2CBus bus;
 		bus = I2CFactory.getInstance(I2CBus.BUS_3);
 		BH1750 bh1750 = new BH1750(bus);
