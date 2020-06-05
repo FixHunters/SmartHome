@@ -14,6 +14,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.smartHome.flat.ApplicationController;
 import com.smartHome.flat.radio.common.Radio;
 import com.smartHome.flat.radio.rda5807.util.Text;
 import com.smartHome.flat.radio.rda5807.util.Util;
@@ -24,9 +29,11 @@ import com.smartHome.flat.radio.rds.common.RDSParser;
 
 /**
  *
- * @author Ladislav Török
+ * @author Jan Pojezdala
  */
 public final class RDA5807M implements Radio, RDSListener {
+	
+	private static final Logger log = LoggerFactory.getLogger(RDA5807M.class);
 
     /////////////////////////////
     // Private class Constants //
@@ -204,22 +211,22 @@ public final class RDA5807M implements Radio, RDSListener {
         byte[] writeBytes;
         try {
             writeBytes = this.prepareWriteData(wordToWrite);
-            System.out.println(String.format("Writing: {register: 0x%02x, upper: 0x%02x, lower: 0x%02x, word: 0x%04x}", registerAddress, writeBytes[0], writeBytes[1], wordToWrite));
+            log.debug(String.format("Writing: {register: 0x%02x, upper: 0x%02x, lower: 0x%02x, word: 0x%04x}", registerAddress, writeBytes[0], writeBytes[1], wordToWrite));
             i2cDeviceForRDA5807M.write(registerAddress, writeBytes);
         } catch (IOException ioex) {
             String exceptionMessage = ioex.getMessage();
-            System.out.println("Write failed: " + ioex.getClass().getName() + ": " + exceptionMessage);
+            log.debug("Write failed: " + ioex.getClass().getName() + ": " + exceptionMessage);
             if (exceptionMessage.startsWith("Input/output error")) {
-                System.out.println(String.format("Reading of register 0x%02x to verify the written data...", registerAddress));
+            	log.debug(String.format("Reading of register 0x%02x to verify the written data...", registerAddress));
                 int readWord = this.readRegisterFromDevice(register);
                 if (readWord == wordToWrite) {
-                    System.out.println("Written and read data are matched.");
+                	log.debug("Written and read data are matched.");
                     return StatusResult.SUCCESS;
                 } else {
-                    System.out.println("Written and read data are mismatched.");
+                	log.debug("Written and read data are mismatched.");
                 }
             } else {
-                System.out.println("Unexpected exception message: " + exceptionMessage + " for " + ioex.getClass().getName());
+            	log.debug("Unexpected exception message: " + exceptionMessage + " for " + ioex.getClass().getName());
             }
 
             return StatusResult.I2C_FAILURE;
@@ -233,10 +240,10 @@ public final class RDA5807M implements Radio, RDSListener {
         try {
             Thread.sleep(100);
         } catch (InterruptedException iex) {
-            System.out.println(iex.getMessage());
+        	log.debug(iex.getMessage());
         }
         int readData = readRegisterFromDevice(register);
-        System.out.println(String.format("Read: {register: 0x%02x, word: 0x%04x}", register.getAddress(), readData));
+        log.debug(String.format("Read: {register: 0x%02x, word: 0x%04x}", register.getAddress(), readData));
     }
     ////////////////////////////////////////////////////////////////////////////
     

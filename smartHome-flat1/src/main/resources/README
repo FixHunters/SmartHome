@@ -2,3 +2,6 @@
 	- zatial iba ako main metoda ktora vyhlada stanice
 19.5.2020
 -pridany spring boot a jeho controller /radio pre volanie radia
+
+TODO
+upravit script ktory pri starte spusti sevisu
