@@ -1,0 +1,321 @@
+swagger: '2.0'
+info:
+  description: >-
+    SmartHome interface description.
+  version: 1.0.0
+  title: SmartHome
+host: balcony.swagger.io
+basePath: /v1
+schemes:
+  - http
+paths:  
+  /data:
+    get:
+      tags:
+        - BalconyController
+      summary: Get all data
+      description: Returns all data
+      operationId: getAllData
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/SensorsResponseEntity'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Not found
+  /adc:
+    get:
+      tags:
+        - BalconyController
+      summary: Get data from ADC converter (Battery Check)
+      description: Get data from ADC
+      operationId: getAdc
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/SensorsResponseEntity'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Not found
+  /pir:
+    get:
+      tags:
+        - BalconyController
+      summary: Get data from PIR sensor
+      description: Get data from PIR
+      operationId: getPIR
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/SensorsResponseEntity'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Not found   
+  /water:
+    get:
+      tags:
+        - BalconyController
+      summary: Check water status
+      description: Check the water level
+      operationId: getWater
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/SensorsResponseEntity'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Not found  
+  /soil:
+    get:
+      tags:
+        - BalconyController
+      summary: Check soil status
+      description: soil moisture control
+      operationId: getSoil
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/SensorsResponseEntity'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Not found 
+  /light:
+    get:
+      tags:
+        - BalconyController
+      summary: Check light intensity
+      description: Check light intensity
+      operationId: getLight
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/SensorsResponseEntity'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Not found 
+  /waterPump:
+    patch:
+      tags:
+        - BalconyController
+      summary: Water pump control
+      description: Enable/Dissable water pump.
+      operationId: patchWaterPump
+      produces:
+        - application/json
+      parameters:
+        - name: enabled
+          in: header
+          required: true
+          type: boolean  
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/BooleanReponseDefinition'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Not found         
+  /automateWatering:
+    post:
+      tags:
+        - BalconyController
+      summary: Run automate watering system
+      description: 'Run automate watering system with optional parameter duration for stop cycle'
+      operationId: postAutomation
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: duration
+          in: header
+          required: false
+          type: integer  
+      responses:
+        '200':
+          description: Successful operation
+  /restart:
+    post:
+      tags:
+        - BalconyController
+      summary: Reboot Balcony Raspberry Pi Zero W
+      description: 'Reboot Balcony Raspberry Pi Zero W'
+      operationId: postRestart
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: duration
+          in: header
+          required: false
+          type: integer  
+      responses:
+        '200':
+          description: Successful operation
+  /python:
+    post:
+      tags:
+        - BalconyController
+      summary: Run python script (Camera module)
+      description: 'Manipulating with camera'
+      operationId: postPython
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: duration
+          in: header
+          required: false
+          type: integer  
+      responses:
+        '200':
+          description: Successful operation      
+  /radio:
+    get:
+      tags:
+        - Flat1Controller
+      summary: Search radio station
+      description: 'Search radio station or all stations.'
+      operationId: getradioSearch
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: tuneDirection
+          in: header
+          required: false
+          type: string  
+          description: 'Searching radio station, seedDirecion could by "+" or "-"'
+        - name: stations
+          in: header
+          required: false
+          type: boolean  
+          description: 'If "true" search radio stations'
+      responses:
+        '200':
+          description: Successful operation  
+  /radioSettings:
+    post:
+      tags:
+        - Flat1Controller
+      summary: Radio settings.
+      description: 'Configure radio'
+      operationId: postRadioOptions
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: volume
+          in: header
+          required: false
+          type: integer  
+          description: 'Set volume'  
+        - name: volumeDirection
+          in: header
+          required: false
+          type: string  
+          description: 'More/less volume, could by "+" or "-"'  
+        - name: frequency
+          in: header
+          required: false
+          type: integer  
+          description: 'Set frequency radio station'  
+        - name: mute
+          in: header
+          required: false
+          type: boolean  
+          description: 'Mute true/false' 
+        - name: bass
+          in: header
+          required: false
+          type: boolean  
+          description: 'Bass true/false' 
+        - name: stereo
+          in: header
+          required: false
+          type: boolean  
+          description: 'Stereo true/false'
+        - name: info
+          in: header
+          required: false
+          type: boolean  
+          description: 'Info true/false'
+        - name: power
+          in: header
+          required: false
+          type: string  
+          description: 'Pover on/off'
+      responses:
+        '200':
+          description: Successful operation  
+definitions:
+  SensorsResponseEntity:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      dataResponse:
+        $ref: '#/definitions/DataResponse'    
+  DataResponse:
+    type: object
+    properties:
+      temperature:
+        type: integer
+        format: int64
+      press:
+        type: integer
+        format: int64
+      alt:
+        type: integer
+        format: int64
+      soilStatus:
+        type: boolean
+      rainStatus:
+        type: boolean
+      waterPumpStatus:
+        type: boolean
+  BooleanReponseDefinition:
+        type: object
+        properties:
+          enabled:
+            type: boolean
+  ApiResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      type:
+        type: string
+      message:
+        type: string

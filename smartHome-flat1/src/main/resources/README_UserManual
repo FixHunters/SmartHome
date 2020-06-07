@@ -1,0 +1,6 @@
+**** SmartHome-flat1 ****
+1,	Radio	
+	-nakonfigurovanie druhe I2C
+	-tuna /boot/config.txt trebalo pridat :
+	dtoverlay=i2c-gpio,i2c_gpio_delay_us=2
+	spristupnilo mi to potom I2C3 BUS napi4j pine 4 a 5 
