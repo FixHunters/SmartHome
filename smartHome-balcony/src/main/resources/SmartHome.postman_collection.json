@@ -1,0 +1,642 @@
+{
+	"info": {
+		"_postman_id": "d92eb09b-1e98-4186-bdb5-2c152a6bc1d2",
+		"name": "SmartHome",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Balcony",
+			"item": [
+				{
+					"name": "[RaspberryURL] Enable WaterPump",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fec79983-547e-4f7f-8185-657a1bb69e76",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "enabled",
+								"value": "false"
+							},
+							{
+								"key": "enabled",
+								"value": "true",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL_BALCONY}}/waterPump",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"waterPump"
+							]
+						},
+						"description": "Enable/disable water pump."
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Enable PowerBank",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "091767be-16af-41f7-8ddc-4bb8ff6ac86b",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "enabled",
+								"value": "false"
+							},
+							{
+								"key": "enabled",
+								"value": "true",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL_BALCONY}}/enablePower",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"enablePower"
+							]
+						},
+						"description": "Enable/disable power bank."
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f4990f1e-c823-4b6e-8681-e5faca39303e",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL_BALCONY}}/data",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"data"
+							]
+						},
+						"description": "Show BMP180, BH1750 and ADC converter measure data.\r\nBMP180  - temperature\r\n        - pressure\r\n        - altitude\r\nBH1750  - light\r\nADC     - battery voltage"
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Get adc",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7a928019-722e-483c-bc87-af34d85f8c60",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL_BALCONY}}/adc",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"adc"
+							]
+						},
+						"description": "Show battery voltage [V]"
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Get light",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0a2458ec-b36a-4935-af8b-367b8badd92c",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL_BALCONY}}/light",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"light"
+							]
+						},
+						"description": "Show light intensity [Lx]"
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Check water",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "64ce75aa-45f9-45e6-9e4b-fdba2fb3cc8b",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL_BALCONY}}/water",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"water"
+							]
+						},
+						"description": "Check water level sensor, return true if is water in container."
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Check soil",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "989036df-391c-4082-a10e-9ff9e0290473",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL_BALCONY}}/soil",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"soil"
+							]
+						},
+						"description": "Check soil sensor, return true if measure soil."
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Check motion",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d2583fad-d318-44d1-ae29-8761de5175f8",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{URL_BALCONY}}/pir",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"pir"
+							]
+						},
+						"description": "Check PIR sensor, return true if measure motion."
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Setup watering time",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f9e16722-7b71-4376-bdf3-63544e7108bc",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "cycleTime",
+								"value": "15"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL_BALCONY}}/automateWatering",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"automateWatering"
+							]
+						},
+						"description": "Setup duration watering time."
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Restart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc164e8b-6376-40ed-9c8b-c6accdcfd5c0",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL_BALCONY}}/restart",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"restart"
+							]
+						},
+						"description": "Reboot raspberry."
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Setup camera",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e1393675-887d-4096-8e83-4d9dcbbdc3ee",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "mode",
+								"value": "camera"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL_BALCONY}}/python",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"python"
+							]
+						},
+						"description": "Run selected python scipt.\r\nSet (camera or video) mode."
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Setup automate watering",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "eb14965c-aafe-49c3-b911-bc63035e218b",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "croneEx",
+								"value": "0  26 23 * * *"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL_BALCONY}}/crone",
+							"host": [
+								"{{URL_BALCONY}}"
+							],
+							"path": [
+								"crone"
+							]
+						},
+						"description": "Setup crone job for automate watering."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b082aa2c-5b17-4415-93be-63ea9659279e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9dfa8b62-c46f-45f5-8e5c-b3e5b18dac9f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Flat1",
+			"item": [
+				{
+					"name": "[RaspberryURL] Tune radio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b4b7fe9-0348-48f1-941f-9cd8ec4f5014",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "tuneDirection",
+								"value": "+"
+							}
+						],
+						"url": {
+							"raw": "{{URL_FLAT_1}}/radio",
+							"host": [
+								"{{URL_FLAT_1}}"
+							],
+							"path": [
+								"radio"
+							]
+						},
+						"description": "Radio searching."
+					},
+					"response": []
+				},
+				{
+					"name": "[RaspberryURL] Setup radio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c9431e62-668d-4299-8fda-4fa901f89fb4",
+								"exec": [
+									"tests[\"response time is less than 1000ms\"] = responseTime < 1000;",
+									"tests[\"status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "volume",
+								"value": "5",
+								"disabled": true
+							},
+							{
+								"key": "frequency",
+								"value": "992",
+								"disabled": true
+							},
+							{
+								"key": "mute",
+								"value": "false"
+							},
+							{
+								"key": "bass",
+								"value": "true"
+							},
+							{
+								"key": "stereo",
+								"value": "true"
+							},
+							{
+								"key": "power",
+								"value": "off",
+								"disabled": true
+							},
+							{
+								"key": "info",
+								"value": "true",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL_FLAT_1}}/radioSettings",
+							"host": [
+								"{{URL_FLAT_1}}"
+							],
+							"path": [
+								"radioSettings"
+							]
+						},
+						"description": "Enviroment: http://sandbox.spoolspace.info:8081"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -81,4 +81,4 @@ static domain_name_servers=8.8.8.8
 noipv6
 
 TODO
-upravit funkciu na light senzor aby sa volala dva krat pretoze prva hodnota je vzdy 0
+upravit funkciu na light senzor aby sa volala dva krat pretoze prva hodnota je vzdy 0- done!
