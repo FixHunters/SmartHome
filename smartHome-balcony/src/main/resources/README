@@ -82,3 +82,6 @@ noipv6
 
 TODO
 upravit funkciu na light senzor aby sa volala dva krat pretoze prva hodnota je vzdy 0- done!
+
+30.8.2020
+rozsirena automateWatering funkcia o sledovanie hladiny vody, TODO - dorobit to pre vlhkostny senzor

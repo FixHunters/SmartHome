@@ -51,7 +51,7 @@ public class BalconyService {
 	public DataResponse getData() {
 		DataResponse dataResponse = new DataResponse();
 		try {			
-			dataResponse.dataResponse(temperatureHumidity.main());
+			dataResponse.dataResponse(temperatureHumidity.getData());
 			dataResponse.setLight(gpioBalcony.getLight());
 			dataResponse.setBattery(gpioBalcony.adcFunction());
 		} catch (Exception e) {
@@ -92,9 +92,9 @@ public class BalconyService {
 	 * 
 	 * @return
 	 */
-	public void setAutomateWatering(String enable, String cycleTime) {
+	public void setAutomateWatering(String cycleTime, Boolean checkWater, Boolean checkHumidity) {
 		try {
-			gpioBalcony.waterPumpAutomat(Integer.valueOf(cycleTime));
+			gpioBalcony.waterPumpAutomat(Integer.valueOf(cycleTime), checkWater, checkHumidity);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,6 +103,7 @@ public class BalconyService {
 	}
 
 	/**
+	 * TODO deprecated
 	 * method for start automated watering job
 	 *
 	 * 
@@ -110,14 +111,14 @@ public class BalconyService {
 	 */
 	// @Scheduled(cron = "${app.run.waterPump}")
 	public void runCroneJob() {
-		logger.info("Automated cron watering job started");
+		logger.info("<runCroneJob> Automated cron watering job started");
 		try {
-			gpioBalcony.waterPumpAutomat(10);
+			gpioBalcony.waterPumpAutomat(10, null, null);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		logger.info("Automated cron watering finished");
+		logger.info("<runCroneJob> Automated cron watering finished");
 	}
 	 
 		/**

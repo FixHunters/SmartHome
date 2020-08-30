@@ -58,31 +58,51 @@ public class DynamicScheduler implements SchedulingConfigurer {
         }
     }
     
-	public String setCron(String croneEx, Boolean enabled) {
+	/**
+	 * 
+	 * Nastavenie funkcii ktore chcem v crone jobe spustat.
+	 * 
+	 * @param croneEx
+	 * @param enabled
+	 * @param cycleTime
+	 * @return
+	 */
+	public String setCron(String croneEx, Boolean enabled, String cycleTime) {
 		if (isSet == false) {
-			log.info("Crone job are execute in time -> {}", croneEx);
 			balconyService.getData();
+			balconyService.checkWater();
+			balconyService.checkSoil();
+			balconyService.setAutomateWatering(cycleTime, true, null);
+			//balconyService.runPython("camera");
+			log.info("<setCron> Actual crone job are execute in time : {} and water cycle time : {}", croneEx, cycleTime);
 		}
 		return croneEx;
 	}
 
     public void scheduleFixed(int frequency) {
-        log.info("scheduleFixed: Next execution time of this will always be {} seconds", frequency);
+        log.info("<scheduleFixed> Next execution time of this will always be {} seconds", frequency);
     }
 
     // Only reason this method gets the cron as parameter is for debug purposes.
     public void scheduleCron(String cron) {
-        log.info("scheduleCron: Next execution time of this taken from cron expression -> {}", cron);
+        log.info("<scheduleCron> Next execution time of this taken from cron expression -> {}", cron);
     }
     
-	public void setActivate(String croneEx) {
+    
+	/**
+	 * Tuna sa nastavuje cron job a dlzka zalievania.
+	 * 
+	 * @param croneEx
+	 * @param cycleTime
+	 */
+	public void setActivate(String croneEx, String cycleTime) {
 		if (future != null)
 			future.cancel(true);
 		futureMap.remove(future);
 		isSetConfig(true);
-		log.info("Next crone execution crone time -> {}", croneEx);
-		CronTrigger croneTrigger = new CronTrigger(setCron(croneEx, isSet), TimeZone.getDefault());
-		future = scheduledTaskRegistrar.getScheduler().schedule(() -> setCron(croneEx, isSet), croneTrigger);
+		log.info("<setActivate> Next crone execution crone time -> {}, watering time: {}s", croneEx, cycleTime);
+		CronTrigger croneTrigger = new CronTrigger(setCron(croneEx, isSet, cycleTime), TimeZone.getDefault());
+		future = scheduledTaskRegistrar.getScheduler().schedule(() -> setCron(croneEx, isSet, cycleTime), croneTrigger);
 		isSetConfig(false);
 		activateFuture(future);
 	}
@@ -92,13 +112,13 @@ public class DynamicScheduler implements SchedulingConfigurer {
      * should be interrupted; otherwise, in-progress tasks are allowed to complete
      */
     public void cancelFuture(boolean mayInterruptIfRunning, ScheduledFuture future) {
-        log.info("Cancelling a future");
+        log.info("<cancelFuture> Cancelling a future");
         future.cancel(mayInterruptIfRunning); // set to false if you want the running task to be completed first.
         futureMap.put(future, false);
     }
 
     public void activateFuture(ScheduledFuture future) {
-        log.info("Re-Activating a future");
+        log.info("<activateFuture> Re-Activating a future");
         futureMap.put(future, true);
         configureTasks(scheduledTaskRegistrar);
     }

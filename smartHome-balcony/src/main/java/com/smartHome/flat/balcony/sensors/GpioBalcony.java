@@ -128,15 +128,17 @@ public class GpioBalcony {
 		if (dataPacket.equals(DataPacket.DATA)) {
 			double resultData = (short) (packet[0] * 256) + packet[1];
 			finalResult = resultData * adcConversion;
+			log.info("<setDataConfig> Battery Volage: {}V", finalResult);
 		}
 		if (dataPacket.equals(DataPacket.CONFIG)) {
 			finalResult = packet[2] * 256 + packet[3];
+			log.info("<setDataConfig> Config: {}V", finalResult);
 		}
 
 		if (dataPacket.equals(DataPacket.TEMPERATURE)) {
 			double resultData = (short) (packet[0] * 256) + packet[1];
 			finalResult = resultData * temperatureConversion;
-			System.out.println("[RX-Data] Temperature Converted: " + finalResult);
+			log.info("<setDataConfig> [RX-Data] Temperature Converted: " + finalResult);
 		}
 		if (dataPacket.equals(DataPacket.PERCENTAGE)) {
 			double resultData = (short) (packet[0] * 256) + packet[1];
@@ -144,8 +146,8 @@ public class GpioBalcony {
 			double Vmin = 2.9;
 			double Vcur = resultData * adcConversion;
 			finalResult = ((Vcur - Vmin) * 100) / (Vmax - Vmin);
-			log.info("Battery Volage: {}V", Math.round(Vcur * 10000.0) / 10000.0);
-			log.info("Battery Percentage: {}%", Math.round(finalResult * 100.0) / 100.0);
+			log.info("<setDataConfig> Battery Volage: {}V", Math.round(Vcur * 10000.0) / 10000.0);
+			log.info("<setDataConfig> Battery Percentage: {}%", Math.round(finalResult * 100.0) / 100.0);
 		}
 
 		return finalResult;
@@ -161,7 +163,7 @@ public class GpioBalcony {
 	public boolean transferSpiData(short[] packet) {
 		int err = Spi.wiringPiSPIDataRW(0, packet, 4);
 		if (err <= -1) {
-			System.out.println(" ==>> SPI TRANSFER FAILED");
+			log.debug("<transferSpiData> ==>> SPI TRANSFER FAILED");
 			return false;
 		}
 		return true;
@@ -175,7 +177,7 @@ public class GpioBalcony {
 	public boolean setupSpi() {
 		int fd = Spi.wiringPiSPISetupMode(0, 500000, Spi.MODE_1);
 		if (fd <= -1) {
-			System.out.println(" ==>> SPI SETUP FAILED");
+			log.debug("<setupSpi> ==>> SPI SETUP FAILED");
 			return false;
 		}
 		return true;
@@ -186,19 +188,24 @@ public class GpioBalcony {
 		GpioController gpio = GpioFactory.getInstance();
 
 		// Enable Vcc pin
-		GpioPinDigitalOutput inputPinOutputVccOut = gpio.provisionDigitalOutputPin(pinVccWaterLevelSensor, PinState.HIGH);
-		log.info("<GpioBalcony> Enable Vcc pin for WaterCheck senzor, Pin: " + pinVccWaterLevelSensor + " State: "
-				+ inputPinOutputVccOut.getState().toString());
+		GpioPinDigitalOutput outputPinWaterSensorVcct = gpio.provisionDigitalOutputPin(pinVccWaterLevelSensor, PinState.HIGH);
 
 		// provision gpio pin as an input pin with its internal pull down
-		GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinWaterLevelSensor, PinPullResistance.PULL_DOWN);
-		log.info("<GpioBalcony> GPIO check state WaterCheck sensor, Pin: " + pinWaterLevelSensor + " State: " + inputPin.getState().toString());
-		inputPin.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
-		inputPinOutputVccOut.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
+		GpioPinDigitalInput inputPinWaterLevelSensor = gpio.provisionDigitalInputPin(pinWaterLevelSensor, PinPullResistance.PULL_DOWN);
+		
+		String logMessage;
+		if (inputPinWaterLevelSensor.getState().equals(PinState.LOW)) {
+			logMessage = "water detected";
+		} else {
+			logMessage = "water not detected";
+		}
+		log.info("<waterCheck> GPIO check state WaterCheck sensor, Pin: {}, State: {}-{}", inputPinWaterLevelSensor.getPin(), inputPinWaterLevelSensor.getState().toString(), logMessage);
+		inputPinWaterLevelSensor.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
+		outputPinWaterSensorVcct.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();
-		gpio.unprovisionPin(inputPin);
-		gpio.unprovisionPin(inputPinOutputVccOut);
-		if (inputPin.getState().isHigh())
+		gpio.unprovisionPin(inputPinWaterLevelSensor);
+		gpio.unprovisionPin(outputPinWaterSensorVcct);
+		if (inputPinWaterLevelSensor.getState().isHigh())
 			return true;
 		else
 			return false;
@@ -211,13 +218,11 @@ public class GpioBalcony {
 
 		// Enable Vcc pin
 		GpioPinDigitalOutput inputPinOutputVccOut = gpio.provisionDigitalOutputPin(pinVccSoilSensor, PinState.HIGH);
-		log.info("<GpioBalcony> Enable Vcc pin for SoilSensor senzor, Pin: " + pinVccSoilSensor + " State: "
-				+ inputPinOutputVccOut.getState().toString());
 
 		// provision gpio pin as an input pin with its internal pull down
 		// resistor enabled
 		GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinSoilSensor, PinPullResistance.PULL_DOWN);
-		log.info("<GpioBalcony> GPIO check state SoilSensor sensor, Pin: " + pinSoilSensor + " State: " + inputPin.getState().toString());
+		log.info("<soilHumidityCheck> GPIO check state SoilSensor sensor, Pin: " + pinSoilSensor + " State: " + inputPin.getState().toString());
 		inputPin.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		inputPinOutputVccOut.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();
@@ -236,7 +241,7 @@ public class GpioBalcony {
 
 		// provision gpio pin as an input pin with its internal pull down
 		GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinWaterPump);
-		log.info("<GpioBalcony> GPIO check state checkWaterPump, Pin: " + pinWaterPump + " State: " + inputPin.getState().toString());
+		log.info("<waterPumpCheck> GPIO check state checkWaterPump, Pin: " + pinWaterPump + " State: " + inputPin.getState().toString());
 		PinState pinState = inputPin.getState();
 		inputPin.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();
@@ -250,7 +255,7 @@ public class GpioBalcony {
 
 		// provision gpio pin as an output pin with PinState HIGH
 		GpioPinDigitalOutput outputPin = gpio.provisionDigitalOutputPin(pinWaterPump, PinState.HIGH);
-		log.info("<GpioBalcony> GPIO StartWaterPump, Pin: " + pinWaterPump + " State: " + outputPin.getState().toString());
+		log.info("<waterPumpStart> GPIO StartWaterPump, Pin: " + pinWaterPump + " State: " + outputPin.getState().toString());
 
 		outputPin.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();
@@ -263,44 +268,81 @@ public class GpioBalcony {
 
 		// provision gpio pin as an output pin with PinState LOW
 		GpioPinDigitalOutput outputPin = gpio.provisionDigitalOutputPin(pinWaterPump, PinState.LOW);
-		log.info("<GpioBalcony> GPIO StopWaterPump, Pin: " + pinWaterPump + " State: " + outputPin.getState().toString());
+		log.info("<waterPumpStop> GPIO StopWaterPump, Pin: " + pinWaterPump + " State: " + outputPin.getState().toString());
 
 		outputPin.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();
 		gpio.unprovisionPin(outputPin);
 	}
-
-	public void waterPumpAutomat(int workTime) throws InterruptedException {
+	
+	public void waterPumpAutomat(int workTime, Boolean checkWater, Boolean checkHumidity) throws InterruptedException {
 		GpioController gpio = GpioFactory.getInstance();
-		GpioPinDigitalInput inputPinWaterCheck = gpio.provisionDigitalInputPin(pinSoilSensor, PinPullResistance.PULL_DOWN);
+		GpioPinDigitalInput inputPinSoilCheck = gpio.provisionDigitalInputPin(pinSoilSensor, PinPullResistance.PULL_DOWN);
+		GpioPinDigitalInput inputPinWaterLevelCheck = gpio.provisionDigitalInputPin(pinWaterLevelSensor, PinPullResistance.PULL_DOWN);
 		GpioPinDigitalOutput outputPinWaterPump = gpio.provisionDigitalOutputPin(pinWaterPump);
 
-		String lineSeparator = System.getProperty("line.separator");
-		log.info("<GpioBalcony> GPIO WaterPumpAutomat, Pin: " + pinWaterPump + " State: " + outputPinWaterPump.getState().toString() + lineSeparator
-				+ "PinWaterCheck, Pin: " + pinSoilSensor + " State: " + inputPinWaterCheck.getState().toString());
+		String logMessage;
+		if (inputPinWaterLevelCheck.getState().equals(PinState.LOW)) {
+			logMessage = "water detected";
+		} else {
+			logMessage = "water not detected";
+		}
+		
+		log.info(
+				"<waterPumpAutomat> pinWaterPump: {}, state: {}, inputPinWaterLevelCheck: {}, State: {}-{}, inputPinSoilCheck: {}, State: {}, checkWater: {}, checkHumidity: {}",
+				pinWaterPump, outputPinWaterPump.getState().toString(), inputPinWaterLevelCheck.getPin(),
+				inputPinWaterLevelCheck.getState().toString(), logMessage, inputPinSoilCheck.getPin(),
+				inputPinSoilCheck.getState().toString(), checkWater, checkHumidity);
 
-		automatWaterPumpListener(inputPinWaterCheck, outputPinWaterPump, workTime);
+		if (checkWater != null && checkWater) {
+			automatWaterPumpListener(inputPinSoilCheck, inputPinWaterLevelCheck, outputPinWaterPump, workTime);
+		} else {
+			try {
+				outputPinWaterPump.setState(PinState.HIGH);
+				Thread.sleep(Long.valueOf(workTime*1000));
+				outputPinWaterPump.setState(PinState.LOW);
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
 		outputPinWaterPump.setState(PinState.LOW);
-		inputPinWaterCheck.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
+		inputPinWaterLevelCheck.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
+		inputPinSoilCheck.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		outputPinWaterPump.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();
-		gpio.unprovisionPin(inputPinWaterCheck);
+		gpio.unprovisionPin(inputPinWaterLevelCheck);
+		gpio.unprovisionPin(inputPinSoilCheck);
 		gpio.unprovisionPin(outputPinWaterPump);
 	}
 
-	public void automatWaterPumpListener(GpioPinDigitalInput inputPin, GpioPinDigitalOutput outputPin, int workTime) throws InterruptedException {
+	public void automatWaterPumpListener(GpioPinDigitalInput inputPinSoilCheck, GpioPinDigitalInput inputPinWaterLevelCheck, GpioPinDigitalOutput outputPinWaterPump, int workTime) throws InterruptedException {
 
-		log.info("<GpioBalcony> I turn on the water pump started as long as the soilSensor registers water on pin: " + inputPin
+		log.info("<automatWaterPumpListener> I turn on the water pump started as long as the soilSensor registers water on pin: " + inputPinSoilCheck
 				+ "or does not set the watering time: " + workTime + "s");
 		do {
 
-			if (inputPin.getState().equals(PinState.HIGH))
-				outputPin.setState(PinState.HIGH);
+			if (inputPinWaterLevelCheck.getState().equals(PinState.LOW)) {	//LOW- zachytena voda, HIGH- bez vody
+				outputPinWaterPump.setState(PinState.HIGH);
+			}
+			
+			/*
+			 * if (inputPinSoilCheck.getState().equals(PinState.LOW)) {
+			 * outputPinWaterPump.setState(PinState.LOW); }
+			 */
+
+				
 			Thread.sleep(1000);
 			workTime--;
-		} while (inputPin.getState().equals(PinState.HIGH) && workTime > 0);
-		log.info("<GpioBalcony> I turn on the water pump finished");
+		} while (inputPinWaterLevelCheck.getState().equals(PinState.LOW) && workTime > 0);	
+		
+		outputPinWaterPump.setState(PinState.LOW);
+		
+		log.info("<automatWaterPumpListener> Watering finished!");
 	}
 
 	public Boolean checkMotionSensorPIR() throws InterruptedException {
@@ -310,14 +352,14 @@ public class GpioBalcony {
 		GpioPinDigitalInput inputPIRCheck = gpio.provisionDigitalInputPin(pinOutPIR, PinPullResistance.PULL_DOWN);
 
 		if (inputPIRCheck.getState().equals(PinState.HIGH)) {
-			log.info("<GpioBalcony> Motion detected!");
+			log.info("<checkMotionSensorPIR> Motion detected!");
 			state = true;
 			// Execute camera script, if motion check was true
 			executePython("camera");
 		} else {
 			state = false;
 		}
-		log.info(" Status: " + state.toString());
+		log.info("<checkMotionSensorPIR> Status: " + state.toString());
 		inputPIRCheck.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();
 		gpio.unprovisionPin(inputPIRCheck);
@@ -342,7 +384,7 @@ public class GpioBalcony {
 			while ((ch = reader.read()) != -1) {
 				out = out + String.valueOf((char) ch);
 			}
-			log.info("<Python script {}> {}", mode, out);
+			log.info("<executePython> Python script mode: {}, output: {}", mode, out);
 
 			reader.close();
 			out = "";
@@ -350,7 +392,7 @@ public class GpioBalcony {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		sendEmail();
+		//sendEmail();
 		
 
 		// Second implementation way
@@ -379,7 +421,7 @@ public class GpioBalcony {
 
 		// Enable Vcc pin
 		GpioPinDigitalOutput pinVcc = gpio.provisionDigitalOutputPin(pinVccBH1750, PinState.HIGH);
-		log.debug("<GpioBalcony> Enable Vcc pin for BH1750 Light senzor, Pin: " + pinVccBH1750 + " State: " + pinVcc.getState().toString());
+		log.debug("<getLight> Enable Vcc pin for BH1750 Light senzor, Pin: " + pinVccBH1750 + " State: " + pinVcc.getState().toString());
 		I2CBus bus;
 		bus = I2CFactory.getInstance(I2CBus.BUS_3);
 		BH1750 bh1750 = new BH1750(bus);
@@ -393,7 +435,7 @@ public class GpioBalcony {
 		}
 
 		value = bh1750.read();
-		log.info("Light sensor lx: " + value.toString());
+		log.info("<getLight> Light sensor lx: " + value.toString());
 		
 		pinVcc.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();
@@ -472,7 +514,7 @@ public class GpioBalcony {
 
 		// provision gpio pin as an output pin with PinState HIGH
 		GpioPinDigitalOutput outputPin = gpio.provisionDigitalOutputPin(pinPowerBank, PinState.HIGH);
-		log.info("<GpioBalcony> GPIO pinPowerBank, Pin: " + pinPowerBank + " State: " + outputPin.getState().toString());
+		log.info("<enablePW> GPIO pinPowerBank, Pin: " + pinPowerBank + " State: " + outputPin.getState().toString());
 
 		outputPin.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();
@@ -485,7 +527,7 @@ public class GpioBalcony {
 
 		// provision gpio pin as an output pin with PinState LOW
 		GpioPinDigitalOutput outputPin = gpio.provisionDigitalOutputPin(pinPowerBank, PinState.LOW);
-		log.info("<GpioBalcony> GPIO pinPowerBank, Pin: " + pinPowerBank + " State: " + outputPin.getState().toString());
+		log.info("<disablePW> GPIO pinPowerBank, Pin: " + pinPowerBank + " State: " + outputPin.getState().toString());
 
 		outputPin.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
 		gpio.shutdown();

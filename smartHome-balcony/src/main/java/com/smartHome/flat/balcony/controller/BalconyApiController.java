@@ -67,8 +67,10 @@ public class BalconyApiController implements BalconyApi {
 	@Override
 	public void setAutomateWatering() {
 		String cycleTime = request.getHeader("cycleTime");
-		log.debug("Cycle was set on time" + cycleTime);
-		balconyService.setAutomateWatering("true", cycleTime);
+		Boolean checkWater = Boolean.valueOf(request.getHeader("checkWater"));
+		Boolean checkHumidity = Boolean.valueOf(request.getHeader("checkHumidity"));
+		log.debug("Cycle was set on time:{} checkWater: {} checkHumidity: {}", cycleTime, checkWater, checkHumidity);
+		balconyService.setAutomateWatering(cycleTime, checkWater, checkHumidity);
 		return;
 	}
 
@@ -94,18 +96,26 @@ public class BalconyApiController implements BalconyApi {
     @PostMapping("/crone")
     public void setCroneJob() {
     	String croneEx = request.getHeader("croneEx");
+    	String cycleTime = request.getHeader("cycleTime");
+    	String croneCancel = request.getHeader("croneCancel");
 		log.debug("croneEx : " + croneEx);
-    	dynamicScheduler.setActivate(croneEx);
+		
+		if (croneCancel != null && croneCancel.equals("true")) {
+			dynamicScheduler.cancelAll();
+		}else {
+			dynamicScheduler.setActivate(croneEx, cycleTime);
+		}
+    	
     }   
     
     @GetMapping("/water")
-    public void getWaterStatus() {
-    	balconyService.checkWater();
+    public Boolean getWaterStatus() {
+    	return balconyService.checkWater();
     }
     
     @GetMapping("/soil")
-    public void getSoilStatus() {
-    	balconyService.checkSoil();
+    public Boolean getSoilStatus() {
+    	return balconyService.checkSoil();
     }
     
 	@GetMapping("/light")

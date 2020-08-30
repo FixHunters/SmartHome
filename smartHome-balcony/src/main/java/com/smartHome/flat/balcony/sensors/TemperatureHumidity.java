@@ -21,7 +21,7 @@ public class TemperatureHumidity {
 
 	private final Logger log = LoggerFactory.getLogger(TemperatureHumidity.class);
 
-    public DataResponse main() throws Exception {
+    public DataResponse getData() throws Exception {
     	
         final NumberFormat NF = new DecimalFormat("##00.00");
 		BMP180 sensor = new BMP180();
@@ -36,7 +36,7 @@ public class TemperatureHumidity {
 			System.err.println(ex.getMessage());
 			ex.printStackTrace();
 		}
-		sensor.setStandardSeaLevelPressure((int) press); // As we ARE at the sea level (in San Francisco).
+		sensor.setStandardSeaLevelPressure((int) press); // As we ARE at the sea level (in San Francisco). TODO
 		try {
 			alt = sensor.readAltitude();
 			dataResponse.setAlt(alt);
@@ -51,10 +51,11 @@ public class TemperatureHumidity {
 			System.err.println(ex.getMessage());
 			ex.printStackTrace();
 		}
-		String lineSeparator = System.getProperty("line.separator");
-		log.info("<TemperatureHumidity> Temperature: " + NF.format(temp) + " C" + lineSeparator + "Pressure   : " + NF.format(press / 100) + " hPa"
-				+ lineSeparator + "Altitude   : " + NF.format(alt) + " m" + lineSeparator + "CPU Temperature   :  "
-				+ SystemInfo.getCpuTemperature() + lineSeparator + "CPU Core Voltage  :  " + SystemInfo.getCpuVoltage());
+		String nls = System.getProperty("line.separator");
+		log.info("<getData> " + nls + "Temperature: {}C" + nls + "Pressure   : {}hPa" + nls + "Altitude   : {}m" + nls
+						+ "CPU Temperature   : {}C " + nls + "CPU Core Voltage  :  {}V",
+				NF.format(temp), NF.format(press / 100), NF.format(alt), SystemInfo.getCpuTemperature(), SystemInfo.getCpuVoltage());
+
 		return dataResponse;	
     }
 }
